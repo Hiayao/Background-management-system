@@ -1,0 +1,29 @@
+.el-cardAll {
+    .el-form-item__label {
+        color: white !important;
+        font-weight: 600;
+    }
+
+    .el-form-item__label {
+        padding: 0 38px 0 0;
+    }
+
+    .el-input {
+        width: 93%;
+    }
+
+    .el-button+.el-button {
+        margin-left: 36px;
+    }
+    .el-form-item__error {
+        color: rgb(252, 0, 0);
+    }
+    .el-input__inner{
+        background: rgba(255,255,255,0.5);
+        padding: 0 28px;
+    }
+    .el-input .el-input__count .el-input__count-inner{
+        background: rgba(255,255,255,0);
+        color: white;
+    }
+}
