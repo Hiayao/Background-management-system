@@ -1,13 +1,10 @@
 <template>
-  <div class="asideAll">
+  <div>
     <el-container>
-      <el-header style="height: 40px;">
-				<div class="wordOne">欢迎XXX来到军师后台管理系统</div>
-				<div class="wordTwo">XX好，亲爱的XXX 上次登录时间：xxxx</div>
-				</el-header>
+      <el-header style="height: 40px;">Header</el-header>
       <el-container>
 
-        <el-aside width="150px">
+        <el-aside width="150px" class="asideAll">
           <el-menu
             default-active="1"
             class="el-menu-vertical-demo"
@@ -100,18 +97,5 @@ export default {
   text-align: center;
   line-height: 160px;
 }
-.wordOne {
-	width: 20%;
-	font-size: 12px;
-	padding-left: 28px;
-	display: flex;
-	justify-content: flex-start;
-}
-.wordTwo {
-	width: 30%;
-	font-size: 12px;
-	padding-right: 28px;
-	display: flex;
-	justify-content: flex-end;
-}
+
 </style>

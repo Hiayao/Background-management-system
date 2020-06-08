@@ -28,16 +28,8 @@
     }
 }
 .asideAll {
-    .el-menu-item  {
-        
-        display: flex !important;
+    .el-menu-item {
+        display: flex;
         justify-content: flex-start !important;
-        align-items: center !important;
-    }
-    .el-header {
-        display: flex !important;
-        justify-content: space-between !important;
-        align-items: center !important;
-        padding: 0;
     }
 }

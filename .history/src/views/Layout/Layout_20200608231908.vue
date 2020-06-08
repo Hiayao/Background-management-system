@@ -103,15 +103,8 @@ export default {
 .wordOne {
 	width: 20%;
 	font-size: 12px;
-	padding-left: 28px;
+	padding-left: 30px;
 	display: flex;
 	justify-content: flex-start;
-}
-.wordTwo {
-	width: 30%;
-	font-size: 12px;
-	padding-right: 28px;
-	display: flex;
-	justify-content: flex-end;
 }
 </style>

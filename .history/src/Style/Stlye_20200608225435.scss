@@ -28,16 +28,7 @@
     }
 }
 .asideAll {
-    .el-menu-item  {
-        
-        display: flex !important;
-        justify-content: flex-start !important;
-        align-items: center !important;
-    }
-    .el-header {
-        display: flex !important;
-        justify-content: space-between !important;
-        align-items: center !important;
-        padding: 0;
+    .el-menu-item {
+        justify-content: flex-start;
     }
 }

@@ -108,7 +108,7 @@ export default {
 	justify-content: flex-start;
 }
 .wordTwo {
-	width: 30%;
+	width: 20%;
 	font-size: 12px;
 	padding-right: 28px;
 	display: flex;

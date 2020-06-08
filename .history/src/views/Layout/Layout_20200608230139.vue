@@ -1,27 +1,23 @@
 <template>
-  <div class="asideAll">
+  <div>
     <el-container>
-      <el-header style="height: 40px;">
-				<div class="wordOne">欢迎XXX来到军师后台管理系统</div>
-				<div class="wordTwo">XX好，亲爱的XXX 上次登录时间：xxxx</div>
-				</el-header>
+      <el-header style="height: 40px;">Header</el-header>
       <el-container>
 
-        <el-aside width="150px">
+        <el-aside width="150px" class="asideAll">
           <el-menu
-            default-active="1"
+            default-active="2"
             class="el-menu-vertical-demo"
-            @open="handleOpen"
-            @close="handleClose"
+            
             background-color="#545c64"
             text-color="#fff"
             active-text-color="#ffd04b"
           >
-            <el-menu-item index="1">
+            <el-menu-item index="3">
               <i class="el-icon-location"></i>
               <span slot="title">首页</span>
             </el-menu-item>
-            <el-menu-item index="2">
+            <el-menu-item index="3">
               <i class="el-icon-menu"></i>
               <span slot="title">已发布</span>
             </el-menu-item>
@@ -29,23 +25,23 @@
               <i class="el-icon-pie-chart"></i>
               <span slot="title">统计</span>
             </el-menu-item>
-            <el-menu-item index="4">
+            <el-menu-item index="3">
               <i class="el-icon-edit-outline"></i>
               <span slot="title">发表文章</span>
             </el-menu-item>
-						<el-menu-item index="5">
+						<el-menu-item index="3">
               <i class="el-icon-document"></i>
               <span slot="title">标签页</span>
             </el-menu-item>
-						<el-menu-item index="6">
+						<el-menu-item index="3">
               <i class="el-icon-takeaway-box"></i>
               <span slot="title">导出Excel</span>
             </el-menu-item>
-						<el-menu-item index="7">
+						<el-menu-item index="3">
               <i class="el-icon-money"></i>
               <span slot="title">图片上传</span>
             </el-menu-item>
-						<el-menu-item index="8">
+						<el-menu-item index="3">
               <i class="el-icon-switch-button"></i>
               <span slot="title">退出系统</span>
             </el-menu-item>
@@ -66,12 +62,7 @@ export default {
     return {};
   },
   methods: {
-    handleOpen(key, keyPath) {
-      console.log(key, keyPath);
-    },
-    handleClose(key, keyPath) {
-      console.log(key, keyPath);
-    }
+    
   },
   mounted() {},
   watch: {},
@@ -100,18 +91,5 @@ export default {
   text-align: center;
   line-height: 160px;
 }
-.wordOne {
-	width: 20%;
-	font-size: 12px;
-	padding-left: 28px;
-	display: flex;
-	justify-content: flex-start;
-}
-.wordTwo {
-	width: 30%;
-	font-size: 12px;
-	padding-right: 28px;
-	display: flex;
-	justify-content: flex-end;
-}
+
 </style>

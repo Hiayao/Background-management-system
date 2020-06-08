@@ -1,15 +1,12 @@
 <template>
-  <div class="asideAll">
+  <div>
     <el-container>
-      <el-header style="height: 40px;">
-				<div class="wordOne">欢迎XXX来到军师后台管理系统</div>
-				<div class="wordTwo">XX好，亲爱的XXX 上次登录时间：xxxx</div>
-				</el-header>
+      <el-header style="height: 40px;">Header</el-header>
       <el-container>
 
         <el-aside width="150px">
           <el-menu
-            default-active="1"
+            default-active="2"
             class="el-menu-vertical-demo"
             @open="handleOpen"
             @close="handleClose"
@@ -17,37 +14,37 @@
             text-color="#fff"
             active-text-color="#ffd04b"
           >
-            <el-menu-item index="1">
-              <i class="el-icon-location"></i>
-              <span slot="title">首页</span>
+            <el-menu-item index="2">
+              <i class="el-icon-menu"></i>
+              <span slot="title">导航二</span>
             </el-menu-item>
             <el-menu-item index="2">
               <i class="el-icon-menu"></i>
-              <span slot="title">已发布</span>
+              <span slot="title">导航二</span>
             </el-menu-item>
-            <el-menu-item index="3">
-              <i class="el-icon-pie-chart"></i>
-              <span slot="title">统计</span>
+            <el-menu-item index="3" disabled>
+              <i class="el-icon-document"></i>
+              <span slot="title">导航三</span>
             </el-menu-item>
             <el-menu-item index="4">
-              <i class="el-icon-edit-outline"></i>
-              <span slot="title">发表文章</span>
+              <i class="el-icon-setting"></i>
+              <span slot="title">导航四</span>
             </el-menu-item>
-						<el-menu-item index="5">
-              <i class="el-icon-document"></i>
-              <span slot="title">标签页</span>
+						<el-menu-item index="2">
+              <i class="el-icon-menu"></i>
+              <span slot="title">导航二</span>
             </el-menu-item>
-						<el-menu-item index="6">
-              <i class="el-icon-takeaway-box"></i>
-              <span slot="title">导出Excel</span>
+						<el-menu-item index="2">
+              <i class="el-icon-menu"></i>
+              <span slot="title">导航二</span>
             </el-menu-item>
-						<el-menu-item index="7">
-              <i class="el-icon-money"></i>
-              <span slot="title">图片上传</span>
+						<el-menu-item index="2">
+              <i class="el-icon-menu"></i>
+              <span slot="title">导航二</span>
             </el-menu-item>
-						<el-menu-item index="8">
-              <i class="el-icon-switch-button"></i>
-              <span slot="title">退出系统</span>
+						<el-menu-item index="2">
+              <i class="el-icon-menu"></i>
+              <span slot="title">导航二</span>
             </el-menu-item>
           </el-menu>
         </el-aside>
@@ -99,19 +96,5 @@ export default {
   color: #333;
   text-align: center;
   line-height: 160px;
-}
-.wordOne {
-	width: 20%;
-	font-size: 12px;
-	padding-left: 28px;
-	display: flex;
-	justify-content: flex-start;
-}
-.wordTwo {
-	width: 30%;
-	font-size: 12px;
-	padding-right: 28px;
-	display: flex;
-	justify-content: flex-end;
 }
 </style>
