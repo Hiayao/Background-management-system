@@ -1,0 +1,154 @@
+﻿- 用到的第三方库
+  - 前端
+    - element-ui
+    - dayjs
+    - axios
+    - mavon-editor(markdown编辑器)
+    - qs
+    - v-charts(vue图表库)
+    - vue-count-to(计数器)
+    - vue-image-crop-upload(图片上传)
+    - vue-json-excel(下载excel)
+
+- 需求
+  - 注册
+    - 用户名不能重复(不能有中文)
+    - 密码必须大于6位
+
+  - 登录
+    - 用户名，密码，验证码不能为空
+    - 用户名不存在，提示
+    - 验证码可以刷新
+    - 验证码存在session里面
+    - 登录之后，用户存在本地和session里面
+
+  - 首页
+    - 图片路径: https://wpimg.wallstcn.com/e7d23d71-cf19-4b90-a1cc-f56af8c0903d.png
+    - 头部
+     - 记录显示用户
+
+     - 问好
+        - 如果早上6-12点，就提示早上好
+        - 如果早上12-2点，就提示中午好
+        - 如果下午2-6点，就提示下午好
+        - 如果晚上6-12点，就提示晚上好
+        - 如果凌晨12点-凌晨6点，就提示该睡觉了
+
+     - 分页表格
+        - 可以搜索
+        - 可以修改
+        - 可以删除
+        - 导出excel
+          - 导出xls格式
+          - 导出csv格式
+
+     - 标签页
+        - 未读消息标记为已读，已读消息数量增加
+        - 已读消息删除，回收站的数量增加
+        - 清空回收站，所有数据为0
+        - 可以标记和删除全部
+        - 还原: 还原到已读消息
+
+     - 图片上传
+        - 第一种:element-ui自带的上传图片组件
+        - 第二种: vue-image-crop-upload上传图片
+
+     - 发布文章
+        - 文章标题
+        - 文章摘要
+        - 作者
+        - 类目
+        - 来源
+        - 重要性(写成星级组件)
+        - 发布时间
+        - 所有内容存入数据库
+        - 增加显示文章页面(显示数据库所有的文章)
+
+     - 统计文章
+        - 按类目统计 (饼图)
+        - 按来源统计
+        - 按发布时间统计
+        - 今日发布计数
+        - 原创文章计数
+
+     - 退出系统
+        - 清空本地存储
+        - 回到登录页
+
+  - 接口说明
+    - 所有接口根路径为http://localhost:3000
+
+    - 验证码: /captcha (get请求)
+
+    - 计数器: /homeData (get请求)
+
+    - 折线图: /homeChat (get请求)
+
+    - 饼图: /ringChat (get请求)
+
+    - 雷达图: /radarChat (get请求)
+
+    - 柱状图: /homeData (get请求)
+
+    - 订单: /orderData (get请求)
+
+    - 进度条: /progress (get请求)
+
+    - 注册: /user/register
+      - post请求:
+        - 参数:
+          - username: 用户名
+          - password: 密码
+
+    - 登录: /user/login
+      - post请求:
+        - 参数:
+          - username: 用户名
+          - password: 密码
+          - code: 验证码
+
+    - 退出登录: /user/logout (get请求)
+
+    - 发布文章 /api/article/create 发布文章的接口
+      - post请求:
+        - 参数:
+          title: 文章标题
+          abstract: 文章摘要
+          author: 作者
+          category: 类目
+          source: 来源
+          star: 重要性
+          text: 文章内容
+          date: 发布时间
+    - 获取所有文章: /article/allArticle (get请求)
+
+    - 查看单个文章: /article/article
+      - post请求
+        - 参数:
+          _id: 文章的_id
+
+    - 删除文章: /article/delete
+      - post请求
+        - 参数:
+          _id: 文章的_id
+
+    - 编辑文章: /article/update
+      - post请求
+        - 参数:
+          id: 文章的id
+          title: 文章标题
+          abstract: 文章摘要
+          author: 作者
+          category: 类目
+          source: 来源
+          star: 重要性
+          text: 文章内容
+          date: 发布时间
+
+    - 表格数据: /tableData (get请求)
+
+    - 文件上传: /upload
+      - 必须在server文件夹下的public文件夹中建一个uploads文件夹
+      - 上传成功之后 在uplodas中查看图片
+
+    - 所有已注册的用户和文章都可以在数据库的koa-admin查看
