@@ -6,7 +6,7 @@
     <el-container>
       <el-header style="height: 40px;">
         <div class="wordOne">欢迎{{obj.username}}来到军师后台管理系统</div>
-        <div class="wordTwo">{{hi}}，亲爱的{{obj.username}} 上次登录时间：{{time}}</div>
+        <div class="wordTwo">XX好，亲爱的{{obj.username}} 上次登录时间：{{time}}</div>
       </el-header>
 
 <!-- 导航栏 -->
@@ -77,8 +77,7 @@ export default {
     return {
       user:"",
       time:"",
-      obj:{},
-      hi:{}
+      obj:{}
     };
   },
   methods: {
@@ -91,13 +90,13 @@ export default {
     if(hi > 6 && hi <= 11){
       this.hi = '早上好'
     }
-    else if(hi > 11 && hi <= 13){
+    else if(hi > 11 && hi < 13){
       this.hi = '中午好'
     }
-    else if(hi > 13 && hi <= 18){
+    else if(hi > 13 && hi < 18){
       this.hi = '下午好'
     }
-    else if(hi > 18 && hi <= 23){
+    else if(hi > 18 && hi < 23){
       this.hi = '晚上好'
     }
     else{

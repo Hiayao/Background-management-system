@@ -24,61 +24,20 @@ const routes = [
     path: '/',
     component: Layout,
     children: [
-
-      // 首页
       {
         path: '',
         name: 'Home',
         component: Home
       },
-
-      // 退出系统页
       {
         path: '/sign-out',
         name: 'Sign-out',
         component: () => import('../views/Sign-out')
       },
-
-      // 已发布页
       {
         path: '/publish',
         name: 'Publish',
         component: () => import('../views/Publish')
-      },
-
-      // 统计页
-      {
-        path: '/census',
-        name: 'Census',
-        component: () => import('../views/Census')
-      },
-
-      // 标签页
-      {
-        path: '/label',
-        name: 'Label',
-        component: () => import('../views/Label')
-      },
-
-      // 发表文章页
-      {
-        path: '/writing',
-        name: 'Writing',
-        component: () => import('../views/Writing')
-      },
-
-      // 导出Excel页
-      {
-        path: '/excel',
-        name: 'Excel',
-        component: () => import('../views/Excel')
-      },
-
-      // 上传图片页
-      {
-        path: '/upimg',
-        name: 'Upimg',
-        component: () => import('../views/Upimg')
       },
     ]
   },

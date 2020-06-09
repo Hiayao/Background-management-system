@@ -6,7 +6,7 @@
     <el-container>
       <el-header style="height: 40px;">
         <div class="wordOne">欢迎{{obj.username}}来到军师后台管理系统</div>
-        <div class="wordTwo">{{hi}}，亲爱的{{obj.username}} 上次登录时间：{{time}}</div>
+        <div class="wordTwo">XX好，亲爱的{{obj.username}} 上次登录时间：{{time}}</div>
       </el-header>
 
 <!-- 导航栏 -->
@@ -53,7 +53,7 @@
             </el-menu-item>
             <el-menu-item index="/sign-out">
               <i class="el-icon-switch-button"></i>
-              <span slot="title">退出系统</span>
+              <span slot="title" @click="signOut">退出系统</span>
             </el-menu-item>
           </el-menu>
         </el-aside>
@@ -77,32 +77,17 @@ export default {
     return {
       user:"",
       time:"",
-      obj:{},
-      hi:{}
+      obj:{}
     };
   },
   methods: {
-    
+    signOut(){
+      this.$router.push('/sign-out')
+    }
   },
   mounted() {
     this.obj = JSON.parse(localStorage.getItem('user'))
-    this.time = dayjs().format('YYYY年MM月DD日HH时mm分ss秒')
-    let hi = dayjs().format('HH')
-    if(hi > 6 && hi <= 11){
-      this.hi = '早上好'
-    }
-    else if(hi > 11 && hi <= 13){
-      this.hi = '中午好'
-    }
-    else if(hi > 13 && hi <= 18){
-      this.hi = '下午好'
-    }
-    else if(hi > 18 && hi <= 23){
-      this.hi = '晚上好'
-    }
-    else{
-      this.hi = '该睡觉咯'
-    }
+    this.time = dayjs(this.obj.data).format('YYYY年MM月DD日HH时mm分ss秒')
   },
   watch: {},
   computed: {}

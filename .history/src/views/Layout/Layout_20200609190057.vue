@@ -77,8 +77,7 @@ export default {
     return {
       user:"",
       time:"",
-      obj:{},
-      hi:{}
+      obj:{}
     };
   },
   methods: {
