@@ -71,7 +71,7 @@ export default {
       ruleForm: {
         name: "",
         pass: "",
-        code: ""
+        code: "",
       },
       code: "",
       rules: {
@@ -107,43 +107,26 @@ export default {
 
     // 验证成功后去首页
     goToHome() {
-      if (
-        this.ruleForm.pass === "" ||
-        this.ruleForm.name === "" ||
-        this.ruleForm.code === ""
-      ) {
-        this.$message({
-          message: "必填项输入不能为空",
-          type: "warning"
+      axios.post("api/user/login", {
+        username: this.ruleForm.name,
+        password: this.ruleForm.pass,
+        code: this.ruleForm.code
+      }).then(res => {
+        if(res.data.code === 200){
+          this.$message({
+          showClose: true,
+          message: '登录成功',
+          type: 'success'
         });
-        return;
-      }
-      axios
-        .post("api/user/login", {
-          username: this.ruleForm.name,
-          password: this.ruleForm.pass,
-          code: this.ruleForm.code
-        })
-        .then(res => {
-          if (res.data.code === 200) {
-            this.$message({
-              showClose: true,
-              message: "登录成功",
-              type: "success"
-            });
-            this.$router.push("/");
-          } else {
-            this.$message({
-              showClose: true,
-              message: "用户名或密码错误",
-              type: "error"
-            });
-          }
-          console.log(res.data);
-        })
-        .catch(err => {
-          console.log(err);
-        });
+        this.$router.push('/')
+        }
+         else {
+                this.$message.error(res.data.message);
+              }
+        console.log(res.data)
+      }).catch(err => {
+        console.log(err)
+      });
       // this.$router.push("/");
     }
   },

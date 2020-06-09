@@ -71,9 +71,9 @@ export default {
       ruleForm: {
         name: "",
         pass: "",
-        code: ""
+        code: "",
       },
-      code: "",
+      
       rules: {
         name: [
           { required: true, message: "请输入用户名", trigger: "blur" },
@@ -88,62 +88,29 @@ export default {
     };
   },
   methods: {
-    // 去注册页面
     goToUp() {
       this.$router.push("/sign-up");
     },
-
-    // 获取验证码的请求
     getCode() {
       axios
         .get("/api/captcha")
         .then(res => {
-          this.code = res.data;
+          this.ruleForm.code = res.data;
         })
         .catch(err => {
           console.log(err);
         });
     },
-
-    // 验证成功后去首页
     goToHome() {
-      if (
-        this.ruleForm.pass === "" ||
-        this.ruleForm.name === "" ||
-        this.ruleForm.code === ""
-      ) {
-        this.$message({
-          message: "必填项输入不能为空",
-          type: "warning"
-        });
-        return;
-      }
-      axios
-        .post("api/user/login", {
-          username: this.ruleForm.name,
-          password: this.ruleForm.pass,
-          code: this.ruleForm.code
-        })
-        .then(res => {
-          if (res.data.code === 200) {
-            this.$message({
-              showClose: true,
-              message: "登录成功",
-              type: "success"
-            });
-            this.$router.push("/");
-          } else {
-            this.$message({
-              showClose: true,
-              message: "用户名或密码错误",
-              type: "error"
-            });
-          }
-          console.log(res.data);
-        })
-        .catch(err => {
-          console.log(err);
-        });
+      axios.post("api/user/login", {
+        username: this.ruleForm.name,
+        password: this.ruleForm.pass,
+        code: this.ruleForm.code
+      }).then(res => {
+        console.log(res.data)
+      }).catch(err => {
+        console.log(err)
+      });
       // this.$router.push("/");
     }
   },

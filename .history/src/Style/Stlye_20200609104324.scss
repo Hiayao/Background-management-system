@@ -26,11 +26,6 @@
         background: rgba(255,255,255,0);
         color: white;
     }
-    svg {
-        height: 40px !important;
-        background: #D9D9D9;
-        border-radius: 5px;
-      }
 }
 .asideAll {
     .el-menu-item  {
@@ -45,5 +40,7 @@
         align-items: center !important;
         padding: 0;
     }
-    
+    svg {
+        height: 40px !important;
+      }
 }

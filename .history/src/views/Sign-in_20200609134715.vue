@@ -107,11 +107,7 @@ export default {
 
     // 验证成功后去首页
     goToHome() {
-      if (
-        this.ruleForm.pass === "" ||
-        this.ruleForm.name === "" ||
-        this.ruleForm.code === ""
-      ) {
+       if (this.ruleForm.pass === "" || this.ruleForm.name === "" || this.ruleForm.code ==="") {
         this.$message({
           message: "必填项输入不能为空",
           type: "warning"
@@ -134,10 +130,10 @@ export default {
             this.$router.push("/");
           } else {
             this.$message({
-              showClose: true,
-              message: "用户名或密码错误",
-              type: "error"
-            });
+          showClose: true,
+          message: '用户名或密码错误',
+          type: 'error'
+        });
           }
           console.log(res.data);
         })

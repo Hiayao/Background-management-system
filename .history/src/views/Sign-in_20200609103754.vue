@@ -36,11 +36,11 @@
           <el-form-item label="验证码" prop="code">
             <i class="el-icon-document"></i>
             <el-input v-model="ruleForm.code" :maxlength="4" style="width: 40%"></el-input>
-            <div v-html="code" class="code" @click="getCode"></div>
+            <div v-html="code" class="code"></div>
           </el-form-item>
 
           <el-form-item>
-            <el-button type="primary" @click="goToHome">立即登录</el-button>
+            <el-button type="primary" >立即登录</el-button>
             <el-button @click="goToUp">注册</el-button>
           </el-form-item>
         </el-form>
@@ -50,7 +50,7 @@
 </template>
 
 <script>
-import axios from "axios";
+import axios from "axios"
 export default {
   name: "",
   props: {},
@@ -71,9 +71,8 @@ export default {
       ruleForm: {
         name: "",
         pass: "",
-        code: ""
-      },
-      code: "",
+        
+      },code: "",
       rules: {
         name: [
           { required: true, message: "请输入用户名", trigger: "blur" },
@@ -83,72 +82,26 @@ export default {
           { required: true, validator: validatePass, trigger: "blur" },
           { min: 6, max: 15, message: "长度在 6 到 15 个字符", trigger: "blur" }
         ],
-        code: [{ required: true, message: "验证码不能为空", trigger: "blur" }]
+        code: [
+          { required:true,message:'验证码不能为空',trigger:'blur' },
+        ],
       }
     };
   },
   methods: {
-    // 去注册页面
-    goToUp() {
-      this.$router.push("/sign-up");
+    goToUp(){
+      this.$router.push('/sign-up')
     },
-
-    // 获取验证码的请求
-    getCode() {
-      axios
-        .get("/api/captcha")
-        .then(res => {
-          this.code = res.data;
-        })
-        .catch(err => {
-          console.log(err);
-        });
-    },
-
-    // 验证成功后去首页
-    goToHome() {
-      if (
-        this.ruleForm.pass === "" ||
-        this.ruleForm.name === "" ||
-        this.ruleForm.code === ""
-      ) {
-        this.$message({
-          message: "必填项输入不能为空",
-          type: "warning"
-        });
-        return;
-      }
-      axios
-        .post("api/user/login", {
-          username: this.ruleForm.name,
-          password: this.ruleForm.pass,
-          code: this.ruleForm.code
-        })
-        .then(res => {
-          if (res.data.code === 200) {
-            this.$message({
-              showClose: true,
-              message: "登录成功",
-              type: "success"
-            });
-            this.$router.push("/");
-          } else {
-            this.$message({
-              showClose: true,
-              message: "用户名或密码错误",
-              type: "error"
-            });
-          }
-          console.log(res.data);
-        })
-        .catch(err => {
-          console.log(err);
-        });
-      // this.$router.push("/");
+    getCode(){
+      axios.get('/api/captcha').then(res => {
+        this.code = res.data
+      }).catch(err => {
+        console.log(err)
+      })
     }
   },
   mounted() {
-    this.getCode();
+    this.getCode()
   },
   watch: {},
   computed: {}
@@ -183,19 +136,19 @@ export default {
 .clearfix {
   text-align: center;
 }
-.el-icon-lock {
+.el-icon-lock{
   position: absolute;
   left: 10px;
   top: 14px;
   color: #fff;
 }
-.el-icon-user {
+.el-icon-user{
   position: absolute;
   left: 10px;
   top: 14px;
   color: #fff;
 }
-.el-icon-document {
+.el-icon-document{
   position: absolute;
   left: 10px;
   top: 14px;
