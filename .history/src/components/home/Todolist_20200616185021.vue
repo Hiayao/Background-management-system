@@ -5,13 +5,13 @@
         <i class="el-icon-arrow-up" @click="checkAll"></i>
       </div> -->
       <div @click="checkAll">
-                        <div v-if="complete">
+                        <div v-if="flag">
 
                             <i class="el-icon-arrow-down"></i>
 
                         </div>
 
-                        <div v-if="!complete">
+                        <div v-if="!flag">
 
                             <i class=" el-icon-arrow-up"></i>
 
@@ -28,7 +28,7 @@
           </div>
           <div class="word">{{item.title}}</div>
           <div>
-            <i class="el-icon-close" v-if="item.hover" @click="del(item,index)"></i>
+            <i class="el-icon-close" v-if="item.hover" @click="del(index)"></i>
           </div>
         </div>
       </div>
@@ -56,7 +56,7 @@ export default {
     return {
       flag:false,
       todos1:[],
-      
+      todos2:[],
       todos: [
         {
           title: "star this repository",
@@ -106,27 +106,9 @@ export default {
     // del(item,index){
     //   this.$emit('del',index)
     // },
-    del(item,index) {
-      // this.todos1.splice(index, 1);
-
-    //  this.todos.splice(index,1);
-    
-      const deleteItem = this.todos1[index];
+    del(index) {
       this.todos1.splice(index, 1);
-      // 要删除的数据项在原始数据中的下标
-      let deleteIndex = -1;
-      // 遍历原始数据，寻找该项数据
-      for (let i = 0; i < this.todos.length; i++) {
-        const item = this.todos[i];
-        if (item === deleteItem) {
-          deleteIndex = i;
-          break;
-        }
-      }
-      // 在原始数据中删除该数据项
-      this.todos.splice(deleteIndex, 1);
      
-    
     },
     border() {
       this.todos1 = this.todos
@@ -146,7 +128,6 @@ export default {
     border3() {
       this.todos1 = this.todos.filter(item => {
         return item.complete === true
-    
       })
       this.flag3 = true;
       this.flag2 = false;
@@ -166,8 +147,6 @@ export default {
       this.$set(item, "hover", false);
     });
    this.border()
-   this.todos1 = this.todos
-   
   },
   watch: {},
   computed: {

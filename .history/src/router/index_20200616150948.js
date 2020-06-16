@@ -39,98 +39,68 @@ const routes = [
       {
         path: '/sign-out',
         name: 'Sign-out',
-        component: () => import('../views/Sign-out'),
-        meta:{
-          title:'退出系统'
-        }
+        component: () => import('../views/Sign-out')
       },
 
       // 分页表格
       {
         path: '/paging',
         name: 'Paging',
-        component: () => import('../views/Paging'),
-        meta:{
-          title:'分页表格'
-        }
+        component: () => import('../views/Paging')
       },
 
       // 已发布页
       {
         path: '/publish',
         name: 'Publish',
-        component: () => import('../views/Publish'),
-        meta:{
-          title:'已发布'
-        }
+        component: () => import('../views/Publish')
       },
 
       // 统计页
       {
         path: '/census',
         name: 'Census',
-        component: () => import('../views/Census'),
-        meta:{
-          title:'统计'
-        }
+        component: () => import('../views/Census')
       },
 
       // 标签页
       {
         path: '/label',
         name: 'Label',
-        component: () => import('../views/Label'),
-        meta:{
-          title:'标签'
-        }
+        component: () => import('../views/Label')
       },
 
       // 发表文章页
       {
         path: '/writing',
         name: 'Writing',
-        component: () => import('../views/Writing'),
-        meta:{
-          title:'发表文章'
-        }
+        component: () => import('../views/Writing')
       },
 
       // 导出Excel页
       {
         path: '/excel',
         name: 'Excel',
-        component: () => import('../views/Excel'),
-        meta:{
-          title:'导出Excel'
-        }
+        component: () => import('../views/Excel')
       },
 
       // 上传图片页
       {
         path: '/upimg',
         name: 'Upimg',
-        component: () => import('../views/Upimg'),
-        meta:{
-          title:'上传图片'
-        }
+        component: () => import('../views/Upimg')
       },
       // 编辑文章页
       {
         path: '/edit',
         name: 'Edit',
-        component: () => import('../views/Edit'),
-        meta:{
-          title:'编辑文章'
-        }
+        component: () => import('../views/Edit')
       },
        // 查看文章页
        {
         path: '/seetxt',
         name: 'Seetxt',
-        component: () => import('../views/Seetxt'),
-        meta:{
-          title:'查看文章'
-        }
+        component: () => import('../views/Seetxt')
       },
     ]
   },
@@ -155,7 +125,6 @@ VueRouter.prototype.push = function push(location) {
 
 let whitePath = ['/sign-in','/sign-up']
 router.beforeEach((to, from, next) => {
-  document.title = to.meta.title
  let user = localStorage.getItem('user')
  if(whitePath.includes(to.path)){
    next()

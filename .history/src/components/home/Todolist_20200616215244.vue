@@ -107,26 +107,9 @@ export default {
     //   this.$emit('del',index)
     // },
     del(item,index) {
-      // this.todos1.splice(index, 1);
-
-    //  this.todos.splice(index,1);
-    
-      const deleteItem = this.todos1[index];
       this.todos1.splice(index, 1);
-      // 要删除的数据项在原始数据中的下标
-      let deleteIndex = -1;
-      // 遍历原始数据，寻找该项数据
-      for (let i = 0; i < this.todos.length; i++) {
-        const item = this.todos[i];
-        if (item === deleteItem) {
-          deleteIndex = i;
-          break;
-        }
-      }
-      // 在原始数据中删除该数据项
-      this.todos.splice(deleteIndex, 1);
-     
-    
+// this.todos = this.todos1
+    //  this.todos.splice(9-index,1);
     },
     border() {
       this.todos1 = this.todos
@@ -144,7 +127,7 @@ export default {
       this.flag3 = false;
     },
     border3() {
-      this.todos1 = this.todos.filter(item => {
+      this.todos1 = this.todos1.filter(item => {
         return item.complete === true
     
       })

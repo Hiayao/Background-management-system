@@ -107,12 +107,11 @@ export default {
     //   this.$emit('del',index)
     // },
     del(item,index) {
-      // this.todos1.splice(index, 1);
-
+      this.todos1.splice(index, 1);
+// this.todos = this.todos1
     //  this.todos.splice(index,1);
     
       const deleteItem = this.todos1[index];
-      this.todos1.splice(index, 1);
       // 要删除的数据项在原始数据中的下标
       let deleteIndex = -1;
       // 遍历原始数据，寻找该项数据
@@ -124,7 +123,7 @@ export default {
         }
       }
       // 在原始数据中删除该数据项
-      this.todos.splice(deleteIndex, 1);
+      this.todos.splice(deleteIndex+1, 1);
      
     
     },
