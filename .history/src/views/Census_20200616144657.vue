@@ -5,7 +5,7 @@
       <div class="releaseA">
         <div class="word">
           <div class="wordA">今日发布</div>
-          <div class="wordA">{{time.length}}</div>
+          <div class="wordA">{{arr.length}}</div>
         </div>
         <div class="ico">
           <i class="el-icon-check"></i>
@@ -14,7 +14,7 @@
       <div class="releaseB">
         <div class="word">
           <div class="wordA">原创文章</div>
-          <div class="wordA">{{self.length}}</div>
+          <div class="wordA">3</div>
         </div>
         <div class="ico">
           <i class="el-icon-tickets"></i>
@@ -68,8 +68,6 @@ export default {
         metrics: '数量'
       }
     return {
-      time:[],
-      self:[],
       chartData: {
         columns: ["分类", "数量"],
         rows: []
@@ -117,13 +115,10 @@ export default {
           item.date = dayjs(item.date).format('YYYY年MM月DD日')
         })
         // 然后定义一个数组来组成已发表文章里和当前年月日相等的数据
-        this.time = res.data.data.filter(item => {
+        let arr = res.data.data.filter(item => {
         return item.date === dayjs().format('YYYY年MM月DD日')
         }) 
-        this.self = res.data.data.filter(item => {
-          return item.source === '原创'
-        })
-        console.log(this.self);
+        console.log(arr);
       })
       .catch(err => {
         console.log(err);

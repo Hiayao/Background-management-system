@@ -170,7 +170,7 @@ export default {
         text: this.text,
         date: this.date
       }).then(res => {
-        // console.log(res.data)
+        console.log(res.data)
           if(res.data.success === true){
           this.$router.push('/publish')
           this.$message({

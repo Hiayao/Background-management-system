@@ -5,7 +5,7 @@
       <div class="releaseA">
         <div class="word">
           <div class="wordA">今日发布</div>
-          <div class="wordA">{{time.length}}</div>
+          <div class="wordA">2</div>
         </div>
         <div class="ico">
           <i class="el-icon-check"></i>
@@ -14,7 +14,7 @@
       <div class="releaseB">
         <div class="word">
           <div class="wordA">原创文章</div>
-          <div class="wordA">{{self.length}}</div>
+          <div class="wordA">3</div>
         </div>
         <div class="ico">
           <i class="el-icon-tickets"></i>
@@ -68,8 +68,6 @@ export default {
         metrics: '数量'
       }
     return {
-      time:[],
-      self:[],
       chartData: {
         columns: ["分类", "数量"],
         rows: []
@@ -90,7 +88,7 @@ export default {
       .get("/api/article/allArticle")
       .then(res => {
         let obj = groupBy(res.data.data, "category");
-        // console.log(res.data.data);
+        console.log(res.data.data);
         for (let i in obj) {
           this.chartData.rows.push({
             数量: obj[i].length,
@@ -109,21 +107,10 @@ export default {
           this.chartData3.rows.push({
             数量: obj2[i].length,
             时间: dayjs(i).format('YYYY年MM月DD日')
-          });
+          });console.log(i);
         }
-        // 获取今日发布和原创文章的数量
-        // 先把已发表文章的时间转换成年月日的格式
-       res.data.data.map(item => {
-          item.date = dayjs(item.date).format('YYYY年MM月DD日')
-        })
-        // 然后定义一个数组来组成已发表文章里和当前年月日相等的数据
-        this.time = res.data.data.filter(item => {
-        return item.date === dayjs().format('YYYY年MM月DD日')
-        }) 
-        this.self = res.data.data.filter(item => {
-          return item.source === '原创'
-        })
-        console.log(this.self);
+        let time = dayjs().format('DD')
+        
       })
       .catch(err => {
         console.log(err);

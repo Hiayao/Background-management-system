@@ -14,7 +14,7 @@
       <div class="releaseB">
         <div class="word">
           <div class="wordA">原创文章</div>
-          <div class="wordA">{{self.length}}</div>
+          <div class="wordA">3</div>
         </div>
         <div class="ico">
           <i class="el-icon-tickets"></i>
